@@ -2,7 +2,6 @@
 include("connection.php");
 $response=array();
 $lid=$_GET['lid'];
-$a=mysql_query("select * from health_insurance_application where log_id='$lid' and hid='$hid'");
 $qry=mysql_query("select * ");
 if(mysql_num_rows($qry)>0)
 {
