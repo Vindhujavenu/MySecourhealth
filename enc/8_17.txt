@@ -1,0 +1,1 @@
+{"answer":[{"ansid":"11","mid":"5","member_id":"17","sq_id":"26","answer":"no","asha_lid":"59","date":"2019-04-23"},{"ansid":"12","mid":"5","member_id":"17","sq_id":"27","answer":"no","asha_lid":"59","date":"2019-04-23"},{"ansid":"13","mid":"5","member_id":"17","sq_id":"28","answer":"yes","asha_lid":"59","date":"2019-04-23"}],"is_answer":"ok"}
