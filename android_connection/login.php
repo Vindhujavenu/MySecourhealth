@@ -1,21 +1,34 @@
 <?php
 include("connection.php");
-$uname=$_GET['uname'];
-$pwd=$_GET['pwd'];
+$username=$_GET['username'];
+$password=$_GET['password'];
 
 $response=array();
-$qry=mysql_query("select * from login where username='$uname' and password='$pwd'");
-if(mysql_num_rows($qry)>0)
+$res=mysql_query("select login.*,asha_worker.*,panchayath.name from login,asha_worker,panchayath where (login.username='$username' and login.password='$password') and login.logid=asha_worker.log_id and asha_worker.p_id=panchayath.p_id ");
+if(mysql_num_rows($res)>0)
 {
-	$response['status']="1";
-	$b=mysql_fetch_array($qry);
-	$response['lid']=$b[0];
-	$response['type']=$b[3];
+	$response["status"]="1";
+	$res1=mysql_fetch_array($res);
+	$lid=$res1[0];
+	$response["lid"]=$lid;
+	$response["uname"]=$res1['username'];
+	$response["pwd"]=$res1['password'];
+	$response["name"]=$res1[2];
+	$response["place"]=$res1[7];
+	$response["post"]=$res1[8];
+	$response["age"]=$res1[9];
+	$response["ward_no"]=$res1[11];
+	$response["email"]=$res1[13];
+	$response["phone"]=$res1[14];
+	$response["photo"]=$res1[12];
+	$response["pid"]=$res1[10];
+	$response["pname"]=$res1[15];
+	
 }
 else
 {
-	$response['status']="0";
+	$response["status"]="0";
 }
 echo json_encode($response);
 
- ?>
+?>
